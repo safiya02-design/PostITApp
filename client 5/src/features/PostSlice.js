@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getPosts=createAsyncThunk("posts/getPosts",async()=>{
     try{
-        const response=await axios.get("http://localhost:5000/getPosts");
+        const response=await axios.get("https://postitapp-2.onrender.com/getPosts");
         return response.data.posts;
     }
     catch(error){
@@ -13,7 +13,7 @@ export const getPosts=createAsyncThunk("posts/getPosts",async()=>{
 
 export const savePost=createAsyncThunk("posts/savePost",async(pdata)=>{
     try{
-        const response=await axios.post("http://localhost:5000/savePost",pdata);
+        const response=await axios.post("https://postitapp-2.onrender.com/savePost",pdata);
         return response.data.message;
     }
     catch(error){
@@ -22,7 +22,7 @@ export const savePost=createAsyncThunk("posts/savePost",async(pdata)=>{
 });
 export const updatePost=createAsyncThunk("posts/updatePost",async(pdata)=>{
     try{
-        const response=await axios.put("http://localhost:5000/updatePost",pdata);
+        const response=await axios.put("https://postitapp-2.onrender.com/updatePost",pdata);
         return response.data;
     }
     catch(error){
@@ -32,7 +32,7 @@ export const updatePost=createAsyncThunk("posts/updatePost",async(pdata)=>{
 
 export const delPost=createAsyncThunk("posts/delPost",async(pid)=>{
     try{
-        const response=await axios.delete(`http://localhost:5000/delPost/${pid}`);
+        const response=await axios.delete(`https://postitapp-2.onrender.com/delPost/${pid}`);
         return response.data;
     }
     catch(error){
@@ -102,4 +102,5 @@ export const PostSlice=createSlice({
         })
     }
 });
+
 export default PostSlice.reducer;
